@@ -13,8 +13,8 @@
         <th>DESCRIPTION</th>
       </tr>
       <tr th:each="album : ${albums}">
-        <td th:text="${album.name}"></td>
-        <td th:text="${album.description}"></td>
+        <td th:text="${album.name}">Nome</td>
+        <td th:text="${album.description}">Descricao</td>
       </tr>
     </table>
 </body>

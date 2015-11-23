@@ -12,6 +12,7 @@ public class Album {
 	private String id;
 	private String name;
 	private String description;
+	private String cover;
 	private List<Photo> photos;
 	
 	public Album(){
@@ -53,6 +54,14 @@ public class Album {
 
 	public void setPhotos(List<Photo> photos) {
 		this.photos = photos;
+	}
+
+	public String getCover() {
+		return cover;
+	}
+
+	public void setCover(String cover) {
+		this.cover = cover;
 	}
 	
 }
