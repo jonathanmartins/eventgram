@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-sm-6 col-md-3" th:each="album: ${albums}">
                     <div class="thumbnail">
-                        <img th:src="${album.cover}"/>
+                        <img th:src="@{${album.cover}}" />
                         <div class = "caption">
                             <h3 th:text="${album.name}">Nome do álbum</h3>
                             <p th:text="${album.description}">Descrição do álbum.</p>

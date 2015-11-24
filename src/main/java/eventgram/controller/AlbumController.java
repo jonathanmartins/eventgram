@@ -1,7 +1,5 @@
 package eventgram.controller;
 
-import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import eventgram.model.Album;
 import eventgram.repository.AlbumRepository;
@@ -21,34 +18,42 @@ public class AlbumController {
 	private AlbumRepository albumService;
 	
 	//Lista todos os albuns
-	@RequestMapping("/")
+	@RequestMapping(value = "/albums", method = RequestMethod.GET)
 	public String listAll(Model model){
-		List<Album> albums = albumService.findAll();
-		model.addAttribute("albums", albums);
+		model.addAttribute("albums", albumService.findAll());
 		return "album/index";
 	}
 
-	//Mostra o formulario pra criar um album
 	//Salvar o token em algum local se precisar
-	@RequestMapping(value="/new/#access_token={token}", method = RequestMethod.GET)
-	public String showFormNew(@PathVariable(value="token") String token, Model model){
-		
-		// Salvar o token se necessario
-		
+	@RequestMapping(value = "album/new/#access_token={token}", method = RequestMethod.GET)
+	public String newAlbum(@PathVariable(value="token") String token, Model model){
 		model.addAttribute("album", new Album());
 		model.addAttribute("token", token);
-		return "album/new";
+		return "album/form";
 	}
 
-	//Cria o album com os atributos passados no form, redireciona para a view show
-	@RequestMapping(value="/new", method = RequestMethod.POST)
-	public String create(@RequestParam String name, @RequestParam String description, Model model){
-		Album album = new Album(name, description);
-		
+	@RequestMapping(value = "album", method = RequestMethod.POST)
+	public String saveAlbum(Album album){
 		// Recuperar o token, fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
-		
 		albumService.save(album);
-		model.addAttribute("album", album);
-		return "album/show";
+		return "redirect:/album/" + album.getId();
+	}
+	
+	@RequestMapping("album/{id}")
+	public String showAlbum(@PathVariable String id, Model model){
+		model.addAttribute("album", albumService.findById(id));
+		return "/album/show";
+	}
+	
+	@RequestMapping("album/edit/{id}")
+	public String edit(@PathVariable String id, Model model){
+		model.addAttribute("album", albumService.findById(id));
+		return "album/form";
+	}
+	
+	@RequestMapping("album/delete/{id}")
+	public String delete(@PathVariable String id){
+		albumService.delete(id);
+		return "redirect:/album/index";
 	}
 }
