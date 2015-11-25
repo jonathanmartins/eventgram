@@ -27,6 +27,7 @@ public class EventgramApplication implements CommandLineRunner{
     	mAlbum.setCover("https://store-images.s-microsoft.com/image/apps."
     			+ "12939.9007199266247104.04442c96-e9b7-4ee8-ac9a-ab3480429e8e.6856487f-cc4f-"
     			+ "4d9d-b5f3-13eac205abd4?w=191&h=191");
+    	
     	albumService.create(mAlbum);
     	
     	Album mAlbum2 = new Album("Mais um album", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus tempus velit eget pellentesque. "

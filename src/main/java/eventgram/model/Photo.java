@@ -5,7 +5,6 @@ public class Photo {
 	private String subtitle;
 	private String ownerUsername;
 	private String thumbnail;
-
 	
 	public String getOwnerUsername() {
 		return ownerUsername;

@@ -13,7 +13,7 @@
                 <a class="thumbnail" href="#">
                     <img class="img-responsive" th:src="@{${photo.link}}"/>
                     <div class="caption">
-                    	<h3 th:text="${photo.username}">Nome de usuário</h3>
+                    	<h3 th:text="${photo.ownerUsername}">Nome de usuário</h3>
                     	<p th:text="${photo.subtitle}">Legenda da foto.</p>
                     </div>
                 </a>
