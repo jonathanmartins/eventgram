@@ -25,10 +25,9 @@ public class AlbumController {
 	}
 
 	//Salvar o token em algum local se precisar
-	@RequestMapping(value = "album/new/#access_token={token}", method = RequestMethod.GET)
-	public String newAlbum(@PathVariable(value="token") String token, Model model){
+	@RequestMapping(value = "album/new", method = RequestMethod.GET)
+	public String newAlbum(Model model){
 		model.addAttribute("album", new Album());
-		model.addAttribute("token", token);
 		return "album/form";
 	}
 
