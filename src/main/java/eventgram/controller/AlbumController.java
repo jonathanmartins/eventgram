@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import eventgram.model.Album;
-import eventgram.repository.AlbumRepository;
+import eventgram.service.AlbumService;
 
 @Controller
 public class AlbumController {
 
 	@Autowired
-	private AlbumRepository albumService;
+	private AlbumService albumService;
 	
 	//Lista todos os albuns
 	@RequestMapping(value = "/albums", method = RequestMethod.GET)
@@ -25,34 +25,34 @@ public class AlbumController {
 	}
 
 	//Salvar o token em algum local se precisar
-	@RequestMapping(value = "album/new", method = RequestMethod.GET)
+	@RequestMapping(value = "albums/new", method = RequestMethod.GET)
 	public String newAlbum(Model model){
 		model.addAttribute("album", new Album());
 		return "album/form";
 	}
-
-	@RequestMapping(value = "album", method = RequestMethod.POST)
-	public String saveAlbum(Album album){
-		// Recuperar o token, fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
-		albumService.save(album);
-		return "redirect:/album/" + album.getId();
-	}
 	
-	@RequestMapping("album/{id}")
-	public String showAlbum(@PathVariable String id, Model model){
-		model.addAttribute("album", albumService.findById(id));
-		return "/album/show";
-	}
-	
-	@RequestMapping("album/edit/{id}")
+	@RequestMapping("albums/edit/{id}")
 	public String edit(@PathVariable String id, Model model){
 		model.addAttribute("album", albumService.findById(id));
 		return "album/form";
 	}
+
+	// Recuperar o token, fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
+	@RequestMapping(value = "album", method = RequestMethod.POST)
+	public String saveAlbum(Album album){
+		albumService.create(album);
+		return "redirect:/albums/" + album.getId();
+	}
 	
-	@RequestMapping("album/delete/{id}")
+	@RequestMapping("albums/{id}")
+	public String showAlbum(@PathVariable String id, Model model){
+		model.addAttribute("album", albumService.findById(id));
+		return "/album/show";
+	}
+		
+	@RequestMapping("albums/delete/{id}")
 	public String delete(@PathVariable String id){
 		albumService.delete(id);
-		return "redirect:/album/index";
+		return "redirect:/albums";
 	}
 }

@@ -8,8 +8,9 @@ public interface AlbumService {
 	public Album create(Album album);
 	public Album read(String id);
 	public Album findByName(String name);
-	public List<Album> listAll();
-	public Album update(Album album);
-	public boolean delete(Album album);
+	public Album findById(String id);
+	public List<Album> findAll();
+	public Album update(String id);
+	public void delete(String id);
 	public void deleteAll();
 }

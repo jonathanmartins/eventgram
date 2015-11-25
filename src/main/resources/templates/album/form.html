@@ -13,8 +13,7 @@
     <h2>Gerenciar Álbum</h2>
     <div>
         <form class="form-horizontal" th:object="${album}" th:action="@{/album}" method="post">
-            <input type="hidden" th:field="*{id}"/>
-            <input type="hidden" th:field="*{version}"/>
+            <!-- <input type="text" hidden="hidden" th:field="*{id}"/> -->
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nome:</label>
                 <div class="col-sm-10">
