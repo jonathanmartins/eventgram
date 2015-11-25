@@ -1,10 +1,38 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head lang="pt-br">
+
+    <title>Eventgram</title>
+
+    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
 </head>
 <body>
-    Here is the album
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+
+	<!-- 
+		Mostrar nome/descrição
+	    Dar um each em album.photos pra mostrar as fotos
+	-->
+
+    <h2 th:text="${album.name}"></h2>
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${album.description}">description</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Cover Url:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${album.cover}">url....</p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
 </body>
 </html>
