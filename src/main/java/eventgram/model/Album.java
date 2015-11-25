@@ -13,6 +13,7 @@ public class Album {
 	private String name;
 	private String description;
 	private String cover;
+	private String tag;
 	private List<Photo> photos;
 	
 	public Album(){
@@ -62,6 +63,14 @@ public class Album {
 
 	public void setCover(String cover) {
 		this.cover = cover;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	
 }
