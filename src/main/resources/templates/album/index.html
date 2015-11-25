@@ -25,8 +25,7 @@
 						<h3 th:text="${album.name}">Nome do álbum</h3>
 						<p th:text="${album.description}">Descrição do álbum.</p>
 						<p>
-							<a href="" class="btn btn-primary" role="button"> Ver álbum
-							</a>
+							<a class="btn btn-primary" th:href="${'/albums/' + album.id}">Ver álbum</a>
 						</p>
 					</div>
 				</div>
