@@ -4,6 +4,8 @@ public class Photo {
 	private String link;
 	private String subtitle;
 	private String ownerUsername;
+	private String thumbnail;
+
 	
 	public String getOwnerUsername() {
 		return ownerUsername;
@@ -27,5 +29,13 @@ public class Photo {
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 }

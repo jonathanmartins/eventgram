@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import eventgram.model.Album;
 import eventgram.service.AlbumServiceImpl;
+import eventgram.service.InstagramParser;
 
 @SpringBootApplication
 public class EventgramApplication implements CommandLineRunner{
@@ -46,5 +47,8 @@ public class EventgramApplication implements CommandLineRunner{
 		System.out.println("Customer found with findByFirstName('Meu primerio album'):");
 		System.out.println("--------------------------------");
 		System.out.println(albumService.findByName("Meu primeiro album").getName());
+		
+		InstagramParser insta = new InstagramParser();
+		insta.parser("https://api.instagram.com/v1/tags/felicidade/media/recent?access_token=177062946.b9ea3ff.e2f796df3994408fbff60ef9e3e7ca37");
     }
 }
