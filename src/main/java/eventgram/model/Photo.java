@@ -5,6 +5,12 @@ public class Photo {
 	private String subtitle;
 	private String ownerUsername;
 	
+	public Photo(String link, String subtitle, String ownerUsername){
+		this.link = link;
+		this.subtitle = subtitle;
+		this.ownerUsername = ownerUsername;
+	}
+	
 	public String getOwnerUsername() {
 		return ownerUsername;
 	}
