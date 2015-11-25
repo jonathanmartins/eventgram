@@ -17,11 +17,6 @@ public class AlbumController {
 	@Autowired
 	private AlbumRepository albumService;
 	
-	@RequestMapping(value = "/")
-	public String index(){
-		return "index";
-	}
-	
 	//Lista todos os albuns
 	@RequestMapping(value = "/albums", method = RequestMethod.GET)
 	public String listAll(Model model){
