@@ -28,7 +28,9 @@ public class EventgramApplication implements CommandLineRunner{
     	Album mAlbum = new Album("Meu primeiro album", "This is a test");
     	mAlbum.setCover("https://store-images.s-microsoft.com/image/apps.12939.9007199266247104.04442c96-e9b7-4ee8-ac9a-ab3480429e8e.6856487f-cc4f-4d9d-b5f3-13eac205abd4?w=191&h=191");
     	
+
     	mAlbum.setPhotos(insta.parser("https://api.instagram.com/v1/tags/standuppaddle/media/recent?access_token=177062946.b9ea3ff.e2f796df3994408fbff60ef9e3e7ca37"));
+
     	albumService.create(mAlbum);
     	
     	Album mAlbum2 = new Album("Mais um album", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus tempus velit eget pellentesque. "
