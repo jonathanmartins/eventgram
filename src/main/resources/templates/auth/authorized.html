@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    <title>Início</title>
+    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
+</head>
+<body>
+	<!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+	
+	<!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://i.huffpost.com/gen/1890242/images/o-PEOPLE-WATCHING-FIREWORKS-facebook.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>CONECTADO!</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-6">
+				<br></br>
+				<div class="jumbotron">
+		  			<h2>Você está conectado ao Instagram!</h2>
+		  			<p>Pronto, agora você pode criar seu primeiro álbum com o Eventgram. É fácil, bastar clicar em "Criar álbum".</p>
+		  			<p><a class="btn btn-primary btn-lg" href="#"
+		  			role="button">Criar álbum</a></p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-6">
+				<br></br>
+				<h2>Crie álbuns por tags</h2>
+				<p>Montar seu álbum é simples e rápido. Basta inserir a tag de sua preferencia.</p>
+				<br></br>
+				<h2>Sociável</h2>
+				<p>Buscamos por fotos públicas. Fotos que você pode compartilhar com quem desejar.</p>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="../static/css/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+	<script src="../static/css/bootstrap-3.3.5/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+	 
+	 <!-- Script to Activate the Carousel -->
+    <script>
+    	$('.carousel').carousel({
+        	interval: 5000 //changes the speed
+    	})
+    </script>
+</body>
+</html>

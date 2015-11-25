@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    <title>Início</title>
+    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<div>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target="#navbar"
+							aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Eventgram</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	
+	<!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <!--<ol class="carousel-indicators">
+            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel2" data-slide-to="1"></li>
+            <li data-target="#myCarousel3" data-slide-to="2"></li>
+        </ol>-->
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('https://wallpaperscraft.com/image/desert_silhouette_people_signs_heat_26663_1920x1080.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>As melhores fotos nos melhores álbuns</h2>
+                </div>
+            </div>
+            <!--<div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&amp;text=Slide Two');"></div>
+                <div class="carousel-caption">
+                    <h2>Crie álbuns por tags</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&amp;text=Slide Three');"></div>
+                <div class="carousel-caption">
+                    <h2>Compartilhe o link do seu álbum do Instagram</h2>
+                </div>
+            </div>-->
+        </div>
+
+        <!-- Controls -->
+        <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>-->
+    </header>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-6">
+				<br></br>
+				<div class="jumbotron">
+		  			<h2>Uma nova forma de ver o Instagram</h2>
+		  			<p>Para começar, que tal conectar sua conta do Instagram ao Eventgram?</p>
+		  			<p><a class="btn btn-primary btn-lg" href="https://instagram.com/oauth/authorize/?client_id=b9ea3ffedb77460aa455ce5a3e331d5b&amp;redirect_uri=http://localhost:8080/authorized.html&amp;response_type=token"
+		  			role="button">Conectar</a></p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-6">
+				<br></br>
+				<h2>Crie álbuns por tags</h2>
+				<p>Montar seu álbum é simples e rápido. Basta inserir a tag de sua preferencia.</p>
+				<br></br>
+				<h2>Sociável</h2>
+				<p>Buscamos por fotos públicas. Fotos que você pode compartilhar com quem desejar.</p>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="../static/css/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+	<script src="../static/css/bootstrap-3.3.5/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+	 
+	 <!-- Script to Activate the Carousel -->
+    <script>
+    	$('.carousel').carousel({
+        	interval: 5000 //changes the speed
+    	})
+    </script>
+</body>
+</html>

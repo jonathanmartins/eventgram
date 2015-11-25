@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pt-br">
 	<title>Albums</title>
-	
 	<!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
 </head>
 
@@ -10,12 +9,11 @@
 	<!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
 
 	<div class="container">
-
 		<div class="starter-template">
-			<h1>Criando álbuns a partir do Instagram</h1>
+			<h1>A nossa lista de álbuns mais recente</h1>
 			<p class="lead">Nós capturamos fotos públicas com base nos seus
-				critérios de busca e montamos um album pra você!</p>
-
+				critérios de busca e montamos um álbum pra você!</p>
+			<p class="lead">Veja abaixo os últimos álbuns criados.</p>
 		</div>
 
 		<div class="row">
@@ -27,7 +25,7 @@
 						<h3 th:text="${album.name}">Nome do álbum</h3>
 						<p th:text="${album.description}">Descrição do álbum.</p>
 						<p>
-							<a href="#" class="btn btn-primary" role="button"> Ver álbum
+							<a href="" class="btn btn-primary" role="button"> Ver álbum
 							</a>
 						</p>
 					</div>
