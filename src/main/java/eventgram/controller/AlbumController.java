@@ -5,14 +5,17 @@ package eventgram.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import eventgram.model.Album;
 import eventgram.service.AlbumService;
 
 @Controller
+@SessionAttributes("album")
 public class AlbumController {
 
 	@Autowired
@@ -38,9 +41,9 @@ public class AlbumController {
 		return "album/form_edit";
 	}
 
-	// Recuperar o token, fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
+	// Fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
 	@RequestMapping(value = "album", method = RequestMethod.POST)
-	public String saveAlbum(Album album){
+	public String saveAlbum(@ModelAttribute("album") Album album){
 		albumService.create(album);
 		return "redirect:/albums/" + album.getId();
 	}

@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${album.name}">Álbum</title>
-    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
+<title th:text="${album.name}">Álbum</title>
+<!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
 </head>
 <body>
 	<!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
-	
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header" th:text="${album.name}">Nome do Álbum</h1>
-            </div>
-            
-            <div class="col-lg-12">
-                <h3 class="page-header" th:text="${album.description}">Descrição do álbum</h3>
-            </div>
 
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb" th:each="photo: ${album.photos}">
-                <a class="thumbnail" th:href="@{${photo.link}}">
-                    <img class="img-responsive" th:src="@{${photo.link}}"/>
-                </a>
-            </div>
-        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header" th:text="${album.name}">Nome do Álbum</h1>
+			</div>
+
+			<div class="col-lg-12">
+				<h3 class="page-header" th:text="${album.description}">Descrição
+					do álbum</h3>
+			</div>
+			
+			<div class="col-lg-12">
+				<h3>
+					<a class="btn btn-primary" th:href="${'/albums/edit/' + album.id}">Editar
+						álbum</a>
+					<a class="btn btn-danger" th:href="${'/albums/delete/' + album.id}">Deletar
+						álbum</a>
+				</h3>
+				<br/>
+			</div>
+
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb"
+				th:each="photo: ${album.photos}">
+				<a class="thumbnail" th:href="@{${photo.link}}"> <img
+					class="img-responsive" th:src="@{${photo.link}}" />
+				</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
