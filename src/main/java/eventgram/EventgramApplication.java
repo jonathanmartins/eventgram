@@ -21,7 +21,7 @@ public class EventgramApplication implements CommandLineRunner{
     
 	@Override
 	public void run(String... args) throws Exception{
-    	albumService.deleteAll();
+    	/*albumService.deleteAll();
     	
     	InstagramParser insta = new InstagramParser();
     	
@@ -52,6 +52,6 @@ public class EventgramApplication implements CommandLineRunner{
 		System.out.println("Customer found with findByFirstName('Meu primerio album'):");
 		System.out.println("--------------------------------");
 		System.out.println(albumService.findByName("Meu primeiro album").getName());
-		
+		*/
     }
 }

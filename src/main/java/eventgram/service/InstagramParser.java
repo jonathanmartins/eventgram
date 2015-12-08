@@ -39,50 +39,60 @@ public class InstagramParser {
     }
   }
 
-  public List<Photo> parser(String url) throws IOException, JSONException {
+  public List<Photo> parser(String url)  {
     List<Photo> photos = new ArrayList<Photo>();
     
-	JSONObject json = readJsonFromUrl(url);
-    System.out.println(json.getJSONArray("data").length());
-    
-    int index;
-    int length = json.getJSONArray("data").length();
-    for(index = 0; index <= (length - 1); index++) {
-    	
-    	JSONArray data = json.getJSONArray("data");
-    	JSONObject jsPhoto = data.getJSONObject(index);
-    	
-    	//Username
-    	JSONObject jsUser = jsPhoto.getJSONObject("user");
-    	
-    	//Subtitle
-    	JSONObject jsCaption = jsPhoto.getJSONObject("caption");
-    	
-    	//Thumbnail e Link
-    	JSONObject jsImages = jsPhoto.getJSONObject("images");
-    	JSONObject jsThumb = jsImages.getJSONObject("thumbnail");
-    	JSONObject jsLink = jsImages.getJSONObject("standard_resolution");
+	JSONObject json;
+	try {
+		json = readJsonFromUrl(url);
+		System.out.println(json.getJSONArray("data").length());
+		 
+	    int index;
+	    int length = json.getJSONArray("data").length();
+	    for(index = 0; index <= (length - 1); index++) {
+	    	
+	    	JSONArray data = json.getJSONArray("data");
+	    	JSONObject jsPhoto = data.getJSONObject(index);
+	    	
+	    	//Username
+	    	JSONObject jsUser = jsPhoto.getJSONObject("user");
+	    	
+	    	//Subtitle
+	    	JSONObject jsCaption = jsPhoto.getJSONObject("caption");
+	    	
+	    	//Thumbnail e Link
+	    	JSONObject jsImages = jsPhoto.getJSONObject("images");
+	    	JSONObject jsThumb = jsImages.getJSONObject("thumbnail");
+	    	JSONObject jsLink = jsImages.getJSONObject("standard_resolution");
 
-    	
-    	//if(jsPhoto.getString("type") == "image") {
-    		Photo photo = new Photo();
-    		System.out.println("- - - - - - - - - - -");
-        	
-    		photo.setOwnerUsername(jsUser.getString("username"));
-        	System.out.println(jsUser.getString("username").toString());
-        	
-        	photo.setSubtitle(jsCaption.getString("text"));
-        	System.out.println(jsCaption.getString("text").toString());
-        	
-        	photo.setThumbnail(jsThumb.getString("url"));
-        	System.out.println(jsThumb.getString("url").toString());
-        	
-        	photo.setLink(jsLink.getString("url"));
-        	System.out.println(jsLink.getString("url").toString());
-        	
-        	photos.add(photo);
-    	//}
-    }
+	    	
+	    	//if(jsPhoto.getString("type") == "image") {
+	    		Photo photo = new Photo();
+	    		System.out.println("- - - - - - - - - - -");
+	        	
+	    		photo.setOwnerUsername(jsUser.getString("username"));
+	        	System.out.println(jsUser.getString("username").toString());
+	        	
+	        	photo.setSubtitle(jsCaption.getString("text"));
+	        	System.out.println(jsCaption.getString("text").toString());
+	        	
+	        	photo.setThumbnail(jsThumb.getString("url"));
+	        	System.out.println(jsThumb.getString("url").toString());
+	        	
+	        	photo.setLink(jsLink.getString("url"));
+	        	System.out.println(jsLink.getString("url").toString());
+	        	
+	        	photos.add(photo);
+	    	//}
+	    }
+	} catch (JSONException e) {
+		System.out.println("JSon Exception, niga!");
+		e.printStackTrace();
+	} catch (IOException e) {
+		System.out.println("IO Exception, niga!");
+		e.printStackTrace();
+	}
+    
     return photos;
   }
 }

@@ -2,6 +2,9 @@ package eventgram.controller;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import eventgram.model.Album;
+import eventgram.model.Photo;
 import eventgram.service.AlbumService;
+import eventgram.service.InstagramParser;
 
 @Controller
 @SessionAttributes("album")
@@ -44,6 +49,12 @@ public class AlbumController {
 	// Fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
 	@RequestMapping(value = "album", method = RequestMethod.POST)
 	public String saveAlbum(@ModelAttribute("album") Album album){
+		List<Photo> photos = new ArrayList<>();
+		InstagramParser insta = new InstagramParser();
+		String tag = album.getTag();
+		photos = insta.parser("https://api.instagram.com/v1/tags/"+ tag +"/media/recent?access_token=273211875.b9ea3ff.dcb885f87ae943d59fc6d7d58b303f5d");
+		album.setPhotos(photos);
+		album.setCover(photos.get(0).getLink());
 		albumService.create(album);
 		return "redirect:/albums/" + album.getId();
 	}
