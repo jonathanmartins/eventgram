@@ -1,6 +1,7 @@
 package eventgram.controller;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,13 +29,13 @@ public class AlbumController {
 	@RequestMapping(value = "albums/new", method = RequestMethod.GET)
 	public String newAlbum(Model model){
 		model.addAttribute("album", new Album());
-		return "album/form";
+		return "album/form_new";
 	}
 	
 	@RequestMapping("albums/edit/{id}")
 	public String edit(@PathVariable String id, Model model){
 		model.addAttribute("album", albumService.findById(id));
-		return "album/form";
+		return "album/form_edit";
 	}
 
 	// Recuperar o token, fazer chamada ao instagram, tratar JSON, adicionar urls de fotos no album
